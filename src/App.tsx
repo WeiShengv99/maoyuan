@@ -1,32 +1,13 @@
 import "./App.css";
-import {
-  bitable,
-  ITableMeta,
-  Selection,
-  ITable,
-  ViewType,
-  IGridView,
-  IFieldMeta,
-} from "@lark-base-open/js-sdk";
-import {
-  Button,
-  InputNumber,
-  Row,
-  Tag,
-  Toast,
-  Space,
-  Col,
-} from "@douyinfe/semi-ui";
+import { bitable, ViewType, IGridView } from "@lark-base-open/js-sdk";
+import { Button, Toast, Space } from "@douyinfe/semi-ui";
 import { BaseFormApi } from "@douyinfe/semi-foundation/lib/es/form/interface";
 import dayjs from "dayjs";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { atom, useAtom, useAtomValue, useSetAtom } from "jotai";
-import { jsPDF, jsPDFOptions } from "jspdf";
-import type { Options as Html2CanvasOptions } from "html2canvas";
+import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
-import printJS from "print-js";
 
-type PDFOptions = { name: string; cover?: HTMLDivElement };
 const toastInfo = (content: string) => {
   Toast.info({
     content,
@@ -141,16 +122,6 @@ export default function App() {
           打印
         </Button>
       </Space>
-      <div style={{ padding: 10 }}></div>
-      {/* <div className="filed-list" style={{ marginTop: 10 }}>
-        <Space wrap>
-          {dataList.map((item) => (
-            <Tag key={item.id} color="blue">
-              {item.name}
-            </Tag>
-          ))}
-        </Space>
-      </div> */}
       <div
         className="pr-background"
         style={{
@@ -236,6 +207,17 @@ export default function App() {
                 <div className="tips">
                   <span>备注：</span>
                   <span>{item?.value?.[12]?.[0]?.text}</span>
+                </div>
+                <div className="tel">
+                  <Space>
+                    <span>联系方式：</span>
+                    <span>新店 181 7507 6255；安丰 137 5795 1236;</span>
+                  </Space>
+                </div>
+                <div className="tel">
+                  <Space>
+                    <span>抖音：78225646178</span>
+                  </Space>
                 </div>
               </div>
             </section>
